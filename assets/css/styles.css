@@ -13,3 +13,38 @@ body{
     width: 100vw;
 
 }
+
+.header{
+    border: 1px solid black;
+    width: 300px;
+    background-color: black;
+    display: flex;
+    max-height: 28px;
+}
+
+.header div {
+
+    background-color: grey;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+   
+    margin:3px 4px;
+    position: relative;
+}
+img{
+    width: 20px;
+    height: 20px;
+
+}
+#minus{
+    position: absolute;
+    top:3px;
+    left: -1px;
+}
+h3{
+    color: white;
+    width: 75%;
+    text-align: center;
+    overflow: hidden;
+}
