@@ -34,7 +34,7 @@ let exist=false;
 
 
 
-function createWindow(title,text) {
+function createWindow(title,text,divId) {
   
     const mainWindow = document.createElement('div');
     mainWindow.classList.add('body-window');
@@ -117,7 +117,8 @@ function createWindow(title,text) {
   
     closeButton.addEventListener('click', function() {
       mainWindow.parentNode.removeChild(mainWindow);
-      exist = false;
+     
+  
       
     });
   
@@ -156,17 +157,21 @@ function createWindow(title,text) {
     
       
     });
-    exist = true;
+    // exist = true;
   }
 
 buttonDiv.addEventListener('dblclick',()=>{
+
     title = 'Description.txt';
     text = '<p> Passionné d\'informatique, j\'ai décidé de faire une reconversion professionnelle en tant que développeur web. Je suis à la recherche d\'un stage du 26 juin jusqu\’au 28 août 2023. <br>Je suis également à la recherche d\'une opportunité d\'alternance pour poursuivre mes études et obtenir un diplôme de développeur FullStack. Le rythme de l\'alternance sera d\'une semaine en formation pour trois semaines en entreprise.</p>';
-    exist ? "" : createWindow(title,text);
+    // exist ? "" :
+     createWindow(title,text);
+
+  
 });
 buttonDiv2.addEventListener('dblclick',()=>{
     title = 'Résumé-de-carrière.txt';  
     text = '<h3> Sidérurgie</h3><ul><li>Ouvrier sidérurgique, pontier cabine, pontier sol, cariste - ARCELOR MITTAL -Juin 2015 à Mars 2022  </li></ul><h3>Automobile</h3><ul><li> Agent de fabrication - SOVAB, Batilly - Décembre 2014 à Avril 2015 </li></ul><h3>Informatique</h3><ul><li>Assistant technicien informatique - VANKSEN, Luxembourg - Novembre 2014</li></ul><h3> Restauration</h3><ul><li>Aide cuisinier - SERVIOR, Dudelange - Décembre 2013 à Septembre 2014</li><li>Fabrication et vente de pâtes fraiches - PASTA FRESCA, Luxembourg - 2013</li></ul>';
-
-    exist ? "" : createWindow(title,text);
+    // exist ? "" : 
+    createWindow(title,text);
 });
