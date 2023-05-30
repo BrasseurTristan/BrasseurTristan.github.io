@@ -51,7 +51,7 @@ main {
 .body-window {
     position: absolute;
     background-color: #2D2928;
-    width: 500px;
+    width: auto;
     height: auto;
     top: 30%;
     left: 30%;
@@ -221,9 +221,9 @@ h3 {
 
 
 #welcome path:nth-child(1) {
-    stroke-dasharray: 450px;
-    stroke-dashoffset: 450px;
-    animation: animation 10s ease forwards;
+    stroke-dasharray: 400px;
+    stroke-dashoffset: 400px;
+    animation: animation 7s ease forwards;
 }
 
 @keyframes animation {
@@ -234,4 +234,15 @@ h3 {
 #svgGroup {
     margin: 0;
     padding: 10px;
+}
+
+@media only screen and (max-width: 834px) {
+    
+    .body-window{
+        width: 80%;
+        margin: auto;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50% ) ;
+    }
 }

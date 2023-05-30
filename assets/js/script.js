@@ -69,9 +69,12 @@ function createWindow(title,text,button, contentclass) {
   mainWindow.style.zIndex = zIndexCounter;
   zIndexCounter++;
 
-  
+  const styleWidth = window.getComputedStyle(mainWindow);
+  console.log(styleWidth);
+  console.log(styleWidth.getPropertyValue('width'));
+
     headerWindow.onmousedown = function(event) {
-      if(isFullscreen){
+      if(isFullscreen && styleWidth.getPropertyValue('width') <843){
         return
       }
     // Calculer la différence entre la position du clic de souris et le coin supérieur gauche de headerWindow
