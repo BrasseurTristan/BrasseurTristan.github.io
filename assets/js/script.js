@@ -6,6 +6,7 @@ date.classList.add('date');
 header.appendChild(date);
 
 function dayAndHour(){
+
   const date = new Date();
   let datelocale = date.toLocaleString('fr-FR',{
     day: 'numeric',
@@ -31,6 +32,7 @@ const languageSkillButton = document.getElementById('languageSkill');
 const studyButton = document.getElementById('formation');
 const hobbyButton = document.getElementById('hobby');
 const pictureButton = document.getElementById('image');
+const aboutButton = document.getElementById('about');
 const headerHeight = document.getElementById("header").offsetHeight;
 let X;
 let Y;
@@ -39,7 +41,7 @@ let topDiv = null;
 let isFullscreen = false;
 let zIndexCounter = 100;
 
-function createWindow(title,text,button) {
+function createWindow(title,text,button, contentclass) {
   
   const mainWindow = document.createElement('div');
   mainWindow.classList.add('body-window');
@@ -61,7 +63,7 @@ function createWindow(title,text,button) {
   closeButton.classList.add('button','close');
   headerWindow.appendChild(closeButton);
   const content = document.createElement('div');
-  content.classList.add('content');
+  content.classList.add('content', contentclass);                        
   mainWindow.appendChild(content);
   content.innerHTML = text;
   mainWindow.style.zIndex = zIndexCounter;
@@ -110,7 +112,6 @@ function createWindow(title,text,button) {
 
 
   const paramStyles = window.getComputedStyle(mainWindow);
-  console.log(paramStyles);
   let currentWidth = paramStyles.getPropertyValue('width');
   let currentHeight = paramStyles.getPropertyValue('height');
   let currentTop = paramStyles.getPropertyValue('top');
@@ -119,12 +120,14 @@ function createWindow(title,text,button) {
   function fullscreen(currentWidth,currentHeight,currentTop,currentLeft){
     
     if(mainWindow.classList.contains('fullscreen')){
+
       mainWindow.style.left =  '0px';
       mainWindow.style.top =  headerHeight + 'px';
       mainWindow.style.width =  '100%';
       mainWindow.style.height = '100%';
       isFullscreen = true;
     }else {
+
       mainWindow.style.left =  currentLeft;
       mainWindow.style.top = currentTop;
       mainWindow.style.width =  currentWidth;
@@ -234,10 +237,16 @@ pictureButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Photo.jpg';  
     text = '<img src="./assets/images/Photo_profil.png" id="picture" alt="Photo.png" title="Photo.png">';
-    createWindow(title,text,this);
-    const mainWindow = document.querySelector('.body-window');
-    const content = mainWindow.querySelector('.content');
-    content.classList.add('content-image');
+    createWindow(title,text,this,'content-image');
+    this.classList.add('disabled');
+  }
+});
+
+aboutButton.addEventListener('dblclick',function(){
+  if (!this.classList.contains('disabled')) {
+    title ='Tristan_Brasseur: ~/cv$';  
+    text = '<p><span id=\'terminal\'>Tristan BRASSEUR:~/cv$</span> présentation</p></br><ul><li>date_de_naissance: 30_octobre_1992(30ans)</li><li>portable: 06-23-50-32-16</li><li>mail:brasseur.tristan@gmail.com</li><li>adresse: 3_rue_du_souvenir_français 57100_Thionville</li><li>linkedIn: linkedin.com/in/tristan-brasseur/</li><li>Français: langue_maternelle</li><li>Anglais: B1</li><li>permis_B:véhiculé</li><li>secteur: Luxembourg_Thionville_Metz</li></ul>';
+    createWindow(title,text,this,'terminal-content');
     this.classList.add('disabled');
   }
 });
