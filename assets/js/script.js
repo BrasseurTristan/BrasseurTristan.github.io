@@ -69,52 +69,12 @@ function createWindow(title,text,button, contentclass) {
   mainWindow.style.zIndex = zIndexCounter;
   zIndexCounter++;
 
-  const styleWidth = window.getComputedStyle(mainWindow);
+  const styleWidth = window.innerWidth;
   console.log(styleWidth);
-  console.log(styleWidth.getPropertyValue('width'));
+  
 
     headerWindow.onmousedown = function(event) {
-      if(isFullscreen && styleWidth.getPropertyValue('width') <843){
-        return
-      }
-    // Calculer la différence entre la position du clic de souris et le coin supérieur gauche de headerWindow
-    let shiftX = event.clientX - headerWindow.getBoundingClientRect().left;
-    let shiftY = event.clientY - headerWindow.getBoundingClientRect().top;
-    // Définir la fonction de rappel pour l'événement mousemove sur tout le document
-    document.onmousemove = function(event) {
-      // Obtenir la largeur et la hauteur de la fenêtre
-      const windowWidth = document.documentElement.clientWidth;
-      const windowHeight = document.documentElement.clientHeight;
-      // Obtenir la largeur et la hauteur de la boîte principale
-      const boxWidth = mainWindow.offsetWidth;
-      const boxHeight = mainWindow.offsetHeight;
-      // Définir les limites de déplacement de la boîte principale
-      const minX = 0;
-      const minY = document.getElementById("header").offsetHeight; // Utiliser la hauteur de la balise avec l'ID "header"
-      const maxX = windowWidth - boxWidth;
-      const maxY = windowHeight - boxHeight;
-      // Calculer les coordonnées restreintes de la boîte principale en fonction de la position de la souris
-      const restrictedX = Math.min(Math.max(minX, event.pageX - shiftX), maxX);
-      const restrictedY = Math.min(Math.max(minY, event.pageY - shiftY), maxY);
-      // Appliquer les coordonnées restreintes à la boîte principale pour la déplacer
-      mainWindow.style.left = restrictedX + 'px';
-      mainWindow.style.top = restrictedY + 'px';
-    };
-  
-    // Définir la fonction de rappel pour l'événement mouseup sur tout le document
-    document.onmouseup = function() {
-      // Supprimer la fonction de rappel pour l'événement mousemove
-      document.onmousemove = null;
-      // Supprimer la fonction de rappel pour l'événement mouseup
-      document.onmouseup = null;
-    };
-  };
-  
-  
-
-
-
-  const paramStyles = window.getComputedStyle(mainWindow);
+      const paramStyles = window.getComputedStyle(mainWindow);
   let currentWidth = paramStyles.getPropertyValue('width');
   let currentHeight = paramStyles.getPropertyValue('height');
   let currentTop = paramStyles.getPropertyValue('top');
@@ -158,6 +118,7 @@ function createWindow(title,text,button, contentclass) {
   mainWindow.addEventListener('click', bringToFront);
 
   function bringToFront() {
+   
     const currentZIndex = parseInt(this.style.zIndex);
     if (currentZIndex === zIndexCounter - 1) {
       return; // Ne rien faire si la fenêtre est déjà en premier plan
@@ -175,13 +136,55 @@ function createWindow(title,text,button, contentclass) {
   
   });
   
+
+      if(isFullscreen || styleWidth.getPropertyValue('width') <900){
+        return
+      }
+    // Calculer la différence entre la position du clic de souris et le coin supérieur gauche de headerWindow
+    let shiftX = event.clientX - headerWindow.getBoundingClientRect().left;
+    let shiftY = event.clientY - headerWindow.getBoundingClientRect().top;
+    // Définir la fonction de rappel pour l'événement mousemove sur tout le document
+    document.onmousemove = function(event) {
+      // Obtenir la largeur et la hauteur de la fenêtre
+      const windowWidth = document.documentElement.clientWidth;
+      const windowHeight = document.documentElement.clientHeight;
+      // Obtenir la largeur et la hauteur de la boîte principale
+      const boxWidth = mainWindow.offsetWidth;
+      const boxHeight = mainWindow.offsetHeight;
+      // Définir les limites de déplacement de la boîte principale
+      const minX = 0;
+      const minY = document.getElementById("header").offsetHeight; // Utiliser la hauteur de la balise avec l'ID "header"
+      const maxX = windowWidth - boxWidth;
+      const maxY = windowHeight - boxHeight;
+      // Calculer les coordonnées restreintes de la boîte principale en fonction de la position de la souris
+      const restrictedX = Math.min(Math.max(minX, event.pageX - shiftX), maxX);
+      const restrictedY = Math.min(Math.max(minY, event.pageY - shiftY), maxY);
+      // Appliquer les coordonnées restreintes à la boîte principale pour la déplacer
+      mainWindow.style.left = restrictedX + 'px';
+      mainWindow.style.top = restrictedY + 'px';
+    };
+  
+    // Définir la fonction de rappel pour l'événement mouseup sur tout le document
+    document.onmouseup = function() {
+      // Supprimer la fonction de rappel pour l'événement mousemove
+      document.onmousemove = null;
+      // Supprimer la fonction de rappel pour l'événement mouseup
+      document.onmouseup = null;
+    };
+  };
+  
+  
+
+
+
+  
 }  
 
 function enableButton(button) {
   button.classList.remove('disabled');
 }
 
-descButton.addEventListener('dblclick',function(){
+descButton.addEventListener('click',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Description.txt';
     text = '<p> Passionné d\'informatique, j\'ai décidé de faire une reconversion professionnelle en tant que développeur web. Je suis à la recherche d\'un stage du 26 juin jusqu\’au 28 août 2023. </br></br>Je suis également à la recherche d\'une opportunité d\'alternance pour poursuivre mes études et obtenir un diplôme de développeur FullStack. Le rythme de l\'alternance sera d\'une semaine en formation pour trois semaines en entreprise.</p>';
@@ -191,7 +194,7 @@ descButton.addEventListener('dblclick',function(){
      
 });
 
-resButton.addEventListener('dblclick',function(){
+resButton.addEventListener('click',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Résumé-de-carrière.txt';  
     text = '<h3> Sidérurgie</h3></br><ul><li>Ouvrier sidérurgique, pontier cabine, pontier sol, cariste - ARCELOR MITTAL -Juin 2015 à Mars 2022  </li></ul></br><h3>Automobile</h3></br><ul><li> Agent de fabrication - SOVAB, Batilly - Décembre 2014 à Avril 2015 </li></ul></br><h3>Informatique</h3></br><ul><li>Assistant technicien informatique - VANKSEN, Luxembourg - Novembre 2014</li></ul></br><h3> Restauration</h3></br><ul><li>Aide cuisinier - SERVIOR, Dudelange - Décembre 2013 à Septembre 2014</li><li>Fabrication et vente de pâtes fraiches - PASTA FRESCA, Luxembourg - 2013</li></ul>';
@@ -200,7 +203,7 @@ resButton.addEventListener('dblclick',function(){
   }
 });
 
-skillButton.addEventListener('dblclick',function(){
+skillButton.addEventListener('click',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Compétences.txt';  
     text = '<ul><li>Prise de décision</li><li>Fléxibilité</li><li>Combativité</li><li>Organisation</li><li>Autonomie</li><li>Ecoute</li><li>Persévérance</li></ul>';
@@ -209,7 +212,7 @@ skillButton.addEventListener('dblclick',function(){
   }
 });
 
-studyButton.addEventListener('dblclick',function(){
+studyButton.addEventListener('click',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Formations.txt';  
     text = '<h3>Développeur Web et Web mobile</h3></br><ul><li>Titre RNCP de niveau 6 - Développeur FullStack - à partir d\'Octobre 2023</li><li>Titre RNCP de niveau 5 - Développeur Web - Décembre 2022 - Octobre 2023</li><li>Remise à niveau des métiers du numérique - Septembre - Décembre 2022</li></br><h3>Technique du froid et du conditionnement de l\'air</h3></br><li>Baccalauréat professionnel - 2012 </li><li>Brevet d\'étude professionnel - 2010</li></br><h3>Certification</h3></br><li>MOOC de l\'ANSSI - Avril 2023</li>';
@@ -218,7 +221,7 @@ studyButton.addEventListener('dblclick',function(){
   }
 });
 
-hobbyButton.addEventListener('dblclick',function(){
+hobbyButton.addEventListener('click',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Loisirs.txt';  
     text = '<ul><li>Informatique</li><li>Impression_3D</li><li>Longboard</li><li>Clavier custom</li></ul>';
@@ -227,7 +230,7 @@ hobbyButton.addEventListener('dblclick',function(){
   }
 });
 
-languageSkillButton.addEventListener('dblclick',function(){
+languageSkillButton.addEventListener('click',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Skills.txt';  
     text = '<h3>Skills :</h3></br><ul><li>HTML (acquis)</li><li>CSS (acquis)</li><li>Javascript (en cours)</li><li>PHP (en cours)</li><li>REACT (en cours)</li><li>ANGULAR (en cours)</li><li>SYMPHONY (en cours)</li><li>SQL (en cours)</li><li>Wordpress (acquis)</li><li>GIT (en cours)</li></ul>';
@@ -236,7 +239,7 @@ languageSkillButton.addEventListener('dblclick',function(){
   }
 });
 
-pictureButton.addEventListener('dblclick',function(){
+pictureButton.addEventListener('click',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Photo.jpg';  
     text = '<img src="./assets/images/Photo_profil.png" id="picture" alt="Photo.png" title="Photo.png">';
@@ -245,7 +248,7 @@ pictureButton.addEventListener('dblclick',function(){
   }
 });
 
-aboutButton.addEventListener('dblclick',function(){
+aboutButton.addEventListener('click',function(){
   if (!this.classList.contains('disabled')) {
     title ='Tristan_Brasseur: ~/cv$';  
     text = '<p><span id=\'terminal\'>Tristan BRASSEUR:~/cv$</span> présentation</p></br><ul><li>date_de_naissance: 30_octobre_1992(30ans)</li><li>portable: 06-23-50-32-16</li><li>mail:brasseur.tristan@gmail.com</li><li>adresse: 3_rue_du_souvenir_français 57100_Thionville</li><li>linkedIn: linkedin.com/in/tristan-brasseur/</li><li>Français: langue_maternelle</li><li>Anglais: B1</li><li>permis_B:véhiculé</li><li>secteur: Luxembourg_Thionville_Metz</li></ul>';

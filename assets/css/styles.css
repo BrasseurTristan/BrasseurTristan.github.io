@@ -191,7 +191,7 @@ h3 {
     height: 100vh;
     position: absolute;
     background-color:rgba(10, 10, 10, 1);
-    animation: welcome-div 6s ease forwards;
+    animation: welcome-div 4s ease forwards;
 }
 @keyframes welcome-div {
     0% {
@@ -236,13 +236,15 @@ h3 {
     padding: 10px;
 }
 
-@media only screen and (max-width: 834px) {
+@media only screen and (max-width: 900px) {
     
     .body-window{
-        width: 80%;
-        margin: auto;
+        width:95%;
+        height: 80%;
+        margin: 5% AUTO;
         top: 40%;
         left: 50%;
-        transform: translate(-50%,-50% ) ;
+        transform: translate(-50%,-50%) ;
     }
+
 }
