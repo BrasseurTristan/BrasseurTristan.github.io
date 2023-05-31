@@ -43,7 +43,7 @@ let zIndexCounter = 100;
 function createWindow(title,text,button, contentclass) {
 
   const mainWindow = document.createElement('div');
-  mainWindow.classList.add('body-window');
+  mainWindow.classList.add('body-window','desktop-setup');
   document.body.appendChild(mainWindow);
   const headerWindow = document.createElement('div');
   headerWindow.classList.add('header-window');
@@ -169,7 +169,7 @@ function createWindow(title,text,button, contentclass) {
 
   });
 
-}  
+}
 
 function enableButton(button) {
   button.classList.remove('disabled');

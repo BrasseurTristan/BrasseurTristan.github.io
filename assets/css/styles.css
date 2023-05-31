@@ -240,19 +240,25 @@ h3 {
 #welcome path:nth-child(1) {
     stroke-dasharray: 500px;
     stroke-dashoffset: 500px;
-    animation: animation 5s ease forwards;
+    animation: animation 4s ease forwards;
 }
 
 @keyframes animation {
     0%{
         opacity: 0;
+        fill-opacity: 0;
     }
     10%{
         opacity: 1;
         stroke-dashoffset: 500px;
     }
-   
+    60%{
+        fill-opacity: 0;
+        
+    }
+    
     100% {
+        fill-opacity: 100%;
         stroke-dashoffset: 0;
     }
 }
@@ -265,10 +271,15 @@ h3 {
 
       body {
         overflow: auto;
+        height: 100%;
       }  
 
     .mobile-setup{
         display: initial;
+    }
+
+    .desktop-setup{
+        display: none;
     }
 
     .desktop-button{
