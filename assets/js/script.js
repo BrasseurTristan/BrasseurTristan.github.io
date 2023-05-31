@@ -13,7 +13,7 @@ function dayAndHour(){
     month: 'long',
   });
 
-  document.querySelector('.date').innerHTML = datelocale + ' ' +addZero(date.getHours()) + ':' + addZero(date.getMinutes());
+  document.querySelector('.date').innerHTML = 'Tristan Brasseur - '+ datelocale + ' ' +addZero(date.getHours()) + ':' + addZero(date.getMinutes());
 }
 function addZero(number){
     return number < 10 ? '0' + number : number
@@ -24,7 +24,6 @@ window.onload = () => {setInterval('dayAndHour()',1000);
 /*****************************************************************************/
 /*********************************NEW WINDOW**********************************/
 /*****************************************************************************/
-
 const descButton = document.getElementById('description');
 const resButton = document.getElementById('resume');
 const skillButton = document.getElementById('skill');
@@ -42,7 +41,7 @@ let isFullscreen = false;
 let zIndexCounter = 100;
 
 function createWindow(title,text,button, contentclass) {
-  
+
   const mainWindow = document.createElement('div');
   mainWindow.classList.add('body-window');
   document.body.appendChild(mainWindow);
@@ -63,81 +62,15 @@ function createWindow(title,text,button, contentclass) {
   closeButton.classList.add('button','close');
   headerWindow.appendChild(closeButton);
   const content = document.createElement('div');
-  content.classList.add('content', contentclass);                        
+  content.classList.add('content', contentclass);
   mainWindow.appendChild(content);
   content.innerHTML = text;
   mainWindow.style.zIndex = zIndexCounter;
   zIndexCounter++;
 
-  const styleWidth = window.innerWidth;
-  console.log(styleWidth);
-  
 
     headerWindow.onmousedown = function(event) {
-      const paramStyles = window.getComputedStyle(mainWindow);
-  let currentWidth = paramStyles.getPropertyValue('width');
-  let currentHeight = paramStyles.getPropertyValue('height');
-  let currentTop = paramStyles.getPropertyValue('top');
-  let currentLeft = paramStyles.getPropertyValue('left');
-
-  function fullscreen(currentWidth,currentHeight,currentTop,currentLeft){
-    
-    if(mainWindow.classList.contains('fullscreen')){
-
-      mainWindow.style.left =  '0px';
-      mainWindow.style.top =  headerHeight + 'px';
-      mainWindow.style.width =  '100%';
-      mainWindow.style.height = '100%';
-      isFullscreen = true;
-    }else {
-
-      mainWindow.style.left =  currentLeft;
-      mainWindow.style.top = currentTop;
-      mainWindow.style.width =  currentWidth;
-      mainWindow.style.height = currentHeight;
-      isFullscreen = false;
-    }
-  }
-
-  
-  upscaleButton.addEventListener('click', function(){
-    
-    if(!mainWindow.classList.contains('fullscreen')){
-      currentHeight = paramStyles.getPropertyValue('height');
-      currentWidth = paramStyles.getPropertyValue('width');
-      currentTop = paramStyles.getPropertyValue('top');
-      currentLeft = paramStyles.getPropertyValue('left');
-      mainWindow.classList.add('fullscreen');
-    }else{
-      mainWindow.classList.remove('fullscreen');
-
-    }
-    fullscreen(currentWidth,currentHeight,currentTop,currentLeft);
-  });
-  
-  mainWindow.addEventListener('click', bringToFront);
-
-  function bringToFront() {
-   
-    const currentZIndex = parseInt(this.style.zIndex);
-    if (currentZIndex === zIndexCounter - 1) {
-      return; // Ne rien faire si la fenêtre est déjà en premier plan
-    }
-    if (topDiv) {
-      topDiv.style.zIndex = '0'; // Mettre la div précédente à une valeur inférieure
-    }
-    this.style.zIndex = '9999';
-    topDiv = this; // Mettre à jour la div actuellement en premier plan
-  }
-  
-  closeButton.addEventListener('click', function() {
-    mainWindow.parentNode.removeChild(mainWindow);
-    enableButton(button);    
-  
-  });
-  
-
-      if(isFullscreen || styleWidth.getPropertyValue('width') <900){
+      if(isFullscreen){
         return
       }
     // Calculer la différence entre la position du clic de souris et le coin supérieur gauche de headerWindow
@@ -163,7 +96,7 @@ function createWindow(title,text,button, contentclass) {
       mainWindow.style.left = restrictedX + 'px';
       mainWindow.style.top = restrictedY + 'px';
     };
-  
+
     // Définir la fonction de rappel pour l'événement mouseup sur tout le document
     document.onmouseup = function() {
       // Supprimer la fonction de rappel pour l'événement mousemove
@@ -172,12 +105,70 @@ function createWindow(title,text,button, contentclass) {
       document.onmouseup = null;
     };
   };
-  
-  
 
 
 
-  
+
+
+  const paramStyles = window.getComputedStyle(mainWindow);
+  let currentWidth = paramStyles.getPropertyValue('width');
+  let currentHeight = paramStyles.getPropertyValue('height');
+  let currentTop = paramStyles.getPropertyValue('top');
+  let currentLeft = paramStyles.getPropertyValue('left');
+
+  function fullscreen(currentWidth,currentHeight,currentTop,currentLeft){
+
+    if(mainWindow.classList.contains('fullscreen')){
+      mainWindow.style.left =  '0px';
+      mainWindow.style.top =  headerHeight + 'px';
+      mainWindow.style.width =  '100%';
+      mainWindow.style.height = '100%';
+      isFullscreen = true;
+    }else {
+      mainWindow.style.left =  currentLeft;
+      mainWindow.style.top = currentTop;
+      mainWindow.style.width =  currentWidth;
+      mainWindow.style.height = currentHeight;
+      isFullscreen = false;
+    }
+  }
+
+
+  upscaleButton.addEventListener('click', function(){
+
+    if(!mainWindow.classList.contains('fullscreen')){
+      currentHeight = paramStyles.getPropertyValue('height');
+      currentWidth = paramStyles.getPropertyValue('width');
+      currentTop = paramStyles.getPropertyValue('top');
+      currentLeft = paramStyles.getPropertyValue('left');
+      mainWindow.classList.add('fullscreen');
+    }else{
+      mainWindow.classList.remove('fullscreen');
+
+    }
+    fullscreen(currentWidth,currentHeight,currentTop,currentLeft);
+  });
+
+  mainWindow.addEventListener('click', bringToFront);
+
+  function bringToFront() {
+    const currentZIndex = parseInt(this.style.zIndex);
+    if (currentZIndex === zIndexCounter - 1) {
+      return; // Ne rien faire si la fenêtre est déjà en premier plan
+    }
+    if (topDiv) {
+      topDiv.style.zIndex = '0'; // Mettre la div précédente à une valeur inférieure
+    }
+    this.style.zIndex = '9999';
+    topDiv = this; // Mettre à jour la div actuellement en premier plan
+  }
+
+  closeButton.addEventListener('click', function() {
+    mainWindow.parentNode.removeChild(mainWindow);
+    enableButton(button);    
+
+  });
+
 }  
 
 function enableButton(button) {
@@ -243,7 +234,7 @@ pictureButton.addEventListener('click',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Photo.jpg';  
     text = '<img src="./assets/images/Photo_profil.png" id="picture" alt="Photo.png" title="Photo.png">';
-    createWindow(title,text,this,'content-image');
+    createWindow(title,text,this,'picture-content');
     this.classList.add('disabled');
   }
 });
