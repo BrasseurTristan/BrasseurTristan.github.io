@@ -153,6 +153,10 @@ h3 {
     cursor: default;
 }
 
+a{
+    color: #D9D9D9;
+}
+
 .content #picture {
     max-width: 100%;
     max-height: 100%; 

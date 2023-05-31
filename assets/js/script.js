@@ -242,7 +242,7 @@ pictureButton.addEventListener('dblclick',function(){
 aboutButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title ='Tristan_Brasseur: ~/cv$';  
-    text = '<p><span id=\'terminal\'>Tristan BRASSEUR:~/cv$</span> présentation</p></br><ul><li>date_de_naissance: 30_octobre_1992(30ans)</li><li>portable: 06-23-50-32-16</li><li>mail: brasseur.tristan@gmail.com</li><li>adresse: 3_rue_du_souvenir_français 57100_Thionville</li><li>linkedIn: linkedin.com/in/tristan-brasseur/</li><li>français: langue_maternelle</li><li>anglais: B1</li><li>permis_b: véhiculé</li><li>secteur: Luxembourg_Thionville_Metz</li></ul>';
+    text = '<p><span id=\'terminal\'>Tristan BRASSEUR:~/cv$</span> présentation</p></br><ul><li>date_de_naissance: 30_octobre_1992(30ans)</li><li>portable: 06-23-50-32-16</li><li>mail: brasseur.tristan@gmail.com</li><li>adresse: 3_rue_du_souvenir_français 57100_Thionville</li><li>linkedIn: <a href="https://www.linkedin.com/in/tristan-brasseur/" target="_blank">linkedin.com/in/tristan-brasseur/</a></li><li>français: langue_maternelle</li><li>anglais: B1</li><li>permis_b: véhiculé</li><li>secteur: Luxembourg_Thionville_Metz</li></ul>';
     createWindow(title,text,this,'terminal-content');
     this.classList.add('disabled');
   }
