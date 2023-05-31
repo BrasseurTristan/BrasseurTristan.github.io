@@ -65,7 +65,7 @@ main {
 .body-window {
     position: absolute;
     background-color: #2D2928;
-    width: auto;
+    width: 500px;
     height: auto;
     top: 30%;
     left: 30%;

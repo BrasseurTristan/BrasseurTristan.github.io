@@ -38,7 +38,7 @@ let Y;
 let mouse_down = false;
 let topDiv = null;
 let isFullscreen = false;
-let zIndexCounter = 100;
+let zIndexCounter = 20;
 
 function createWindow(title,text,button, contentclass) {
 
@@ -153,7 +153,7 @@ function createWindow(title,text,button, contentclass) {
 
   function bringToFront() {
     const currentZIndex = parseInt(this.style.zIndex);
-    if (currentZIndex === zIndexCounter - 1) {
+    if (currentZIndex === zIndexCounter ) {
       return; // Ne rien faire si la fenêtre est déjà en premier plan
     }
     if (topDiv) {
@@ -175,7 +175,7 @@ function enableButton(button) {
   button.classList.remove('disabled');
 }
 
-descButton.addEventListener('click',function(){
+descButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Description.txt';
     text = '<p> Passionné d\'informatique, j\'ai décidé de faire une reconversion professionnelle en tant que développeur web. Je suis à la recherche d\'un stage du 26 juin jusqu\’au 28 août 2023. </br></br>Je suis également à la recherche d\'une opportunité d\'alternance pour poursuivre mes études et obtenir un diplôme de développeur FullStack. Le rythme de l\'alternance sera d\'une semaine en formation pour trois semaines en entreprise.</p>';
@@ -185,7 +185,7 @@ descButton.addEventListener('click',function(){
      
 });
 
-resButton.addEventListener('click',function(){
+resButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Résumé-de-carrière.txt';  
     text = '<h3> Sidérurgie</h3></br><ul><li>Ouvrier sidérurgique, pontier cabine, pontier sol, cariste - ARCELOR MITTAL -Juin 2015 à Mars 2022  </li></ul></br><h3>Automobile</h3></br><ul><li> Agent de fabrication - SOVAB, Batilly - Décembre 2014 à Avril 2015 </li></ul></br><h3>Informatique</h3></br><ul><li>Assistant technicien informatique - VANKSEN, Luxembourg - Novembre 2014</li></ul></br><h3> Restauration</h3></br><ul><li>Aide cuisinier - SERVIOR, Dudelange - Décembre 2013 à Septembre 2014</li><li>Fabrication et vente de pâtes fraiches - PASTA FRESCA, Luxembourg - 2013</li></ul>';
@@ -194,7 +194,7 @@ resButton.addEventListener('click',function(){
   }
 });
 
-skillButton.addEventListener('click',function(){
+skillButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Compétences.txt';  
     text = '<ul><li>Prise de décision</li><li>Fléxibilité</li><li>Combativité</li><li>Organisation</li><li>Autonomie</li><li>Ecoute</li><li>Persévérance</li></ul>';
@@ -203,7 +203,7 @@ skillButton.addEventListener('click',function(){
   }
 });
 
-studyButton.addEventListener('click',function(){
+studyButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Formations.txt';  
     text = '<h3>Développeur Web et Web mobile</h3></br><ul><li>Titre RNCP de niveau 6 - Développeur FullStack - à partir d\'Octobre 2023</li><li>Titre RNCP de niveau 5 - Développeur Web - Décembre 2022 - Octobre 2023</li><li>Remise à niveau des métiers du numérique - Septembre - Décembre 2022</li></br><h3>Technique du froid et du conditionnement de l\'air</h3></br><li>Baccalauréat professionnel - 2012 </li><li>Brevet d\'étude professionnel - 2010</li></br><h3>Certification</h3></br><li>MOOC de l\'ANSSI - Avril 2023</li>';
@@ -212,7 +212,7 @@ studyButton.addEventListener('click',function(){
   }
 });
 
-hobbyButton.addEventListener('click',function(){
+hobbyButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Loisirs.txt';  
     text = '<ul><li>Informatique</li><li>Impression_3D</li><li>Longboard</li><li>Clavier custom</li></ul>';
@@ -221,7 +221,7 @@ hobbyButton.addEventListener('click',function(){
   }
 });
 
-languageSkillButton.addEventListener('click',function(){
+languageSkillButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Skills.txt';  
     text = '<h3>Skills :</h3></br><ul><li>HTML (acquis)</li><li>CSS (acquis)</li><li>Javascript (en cours)</li><li>PHP (en cours)</li><li>REACT (en cours)</li><li>ANGULAR (en cours)</li><li>SYMPHONY (en cours)</li><li>SQL (en cours)</li><li>Wordpress (acquis)</li><li>GIT (en cours)</li></ul>';
@@ -230,7 +230,7 @@ languageSkillButton.addEventListener('click',function(){
   }
 });
 
-pictureButton.addEventListener('click',function(){
+pictureButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Photo.jpg';  
     text = '<img src="./assets/images/Photo_profil.png" id="picture" alt="Photo.png" title="Photo.png">';
@@ -239,7 +239,7 @@ pictureButton.addEventListener('click',function(){
   }
 });
 
-aboutButton.addEventListener('click',function(){
+aboutButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title ='Tristan_Brasseur: ~/cv$';  
     text = '<p><span id=\'terminal\'>Tristan BRASSEUR:~/cv$</span> présentation</p></br><ul><li>date_de_naissance: 30_octobre_1992(30ans)</li><li>portable: 06-23-50-32-16</li><li>mail:brasseur.tristan@gmail.com</li><li>adresse: 3_rue_du_souvenir_français 57100_Thionville</li><li>linkedIn: linkedin.com/in/tristan-brasseur/</li><li>Français: langue_maternelle</li><li>Anglais: B1</li><li>permis_B:véhiculé</li><li>secteur: Luxembourg_Thionville_Metz</li></ul>';
