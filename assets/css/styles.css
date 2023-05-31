@@ -79,7 +79,7 @@ main {
 
 .header-window {
     position: sticky;
-    z-index: 99;
+    z-index: 98;
     top: 0px;
     padding: 10px;
     border: 1px solid #575757;
