@@ -206,7 +206,7 @@ skillButton.addEventListener('dblclick',function(){
 studyButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Formations.txt';  
-    text = '<h3>Développeur Web et Web mobile</h3></br><ul><li>Titre RNCP de niveau 6 - Développeur FullStack - à partir d\'Octobre 2023</li><li>Titre RNCP de niveau 5 - Développeur Web - Décembre 2022 - Octobre 2023</li><li>Remise à niveau des métiers du numérique - Septembre - Décembre 2022</li></br><h3>Technique du froid et du conditionnement de l\'air</h3></br><li>Baccalauréat professionnel - 2012 </li><li>Brevet d\'étude professionnel - 2010</li></br><h3>Certification</h3></br><li>MOOC de l\'ANSSI - Avril 2023</li>';
+    text = '<h3>Développeur Web et Web mobile</h3></br><ul><li><span class="diploma">Titre RNCP de niveau 6 - Développeur FullStack</span> - à partir d\'Octobre 2023</li><li><span class="diploma">Titre RNCP de niveau 5 - Développeur Web</span> - Décembre 2022 - Octobre 2023</li><li><span class="diploma">Remise à niveau des métiers du numérique</span> - Septembre - Décembre 2022</li></br><h3>Technique du froid et du conditionnement de l\'air</h3></br><li><span class="diploma">Baccalauréat professionnel</span> - 2012 </li><li><span class="diploma">Brevet d\'étude professionnel</span> - 2010</li></br><h3>Certification</h3></br><li><span class="diploma">MOOC de l\'ANSSI</span> - Avril 2023</li>';
     createWindow(title,text,this);
     this.classList.add('disabled');
   }
