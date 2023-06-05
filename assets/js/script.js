@@ -224,7 +224,7 @@ hobbyButton.addEventListener('dblclick',function(){
 languageSkillButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Skills.txt';  
-    text = '<h3>Skills :</h3></br><ul><li>HTML (acquis)</li><li>CSS (acquis)</li><li>Javascript (en cours)</li><li>PHP (en cours)</li><li>REACT (en cours)</li><li>ANGULAR (en cours)</li><li>SYMPHONY (en cours)</li><li>SQL (en cours)</li><li>Wordpress (acquis)</li><li>GIT (en cours)</li></ul>';
+    text = '<h3>Skills :</h3></br><ul><li>HTML (acquis)</li><li>CSS (acquis)</li><li>Javascript (en cours)</li><li>PHP (en cours)</li><li>REACT (en cours)</li><li>ANGULAR (en cours)</li><li>SYMFONY (en cours)</li><li>SQL (en cours)</li><li>Wordpress (acquis)</li><li>GIT (en cours)</li></ul>';
     createWindow(title,text,this);
     this.classList.add('disabled');
   }
@@ -242,7 +242,7 @@ pictureButton.addEventListener('dblclick',function(){
 aboutButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title ='Tristan_Brasseur: ~/cv$';  
-    text = '<p><span id=\'terminal\'>Tristan BRASSEUR:~/cv$</span> présentation</p></br><ul><li>date_de_naissance: 30_octobre_1992(30ans)</li><li>portable: <a href="tel:+33623503216">06-23-50-32-16</a></li><li>mail: <a href="mailto:brasseur.tristan@gmail.com">brasseur.tristan@gmail.com</a></li><li>adresse: 3_rue_du_souvenir_français 57100_Thionville</li><li>linkedIn: <a href="https://www.linkedin.com/in/tristan-brasseur/" target="_blank">linkedin.com/in/tristan-brasseur/</a></li><li>français: langue_maternelle</li><li>anglais: B1</li><li>permis_b: véhiculé</li><li>secteur: Luxembourg_Thionville_Metz</li></ul>';
+    text = '<p><span id=\'terminal\'>Tristan BRASSEUR:~/cv$</span> présentation</p></br><ul><li>date_de_naissance: 30_octobre_1992(30ans)</li><li>portable: <a href="tel:+33623503216">06-23-50-32-16</a></li><li>mail: <a href="mailto:brasseur.tristan@gmail.com">brasseur.tristan@gmail.com</a></li><li>adresse: 3_rue_du_souvenir_français 57100_Thionville</li><li>linkedIn: <a href="https://www.linkedin.com/in/tristan-brasseur/" target="_blank">linkedin.com/in/tristan-brasseur/</a></li><li>gitHub: <a href="https://github.com/BrasseurTristan" target="_blank">github.com/BrasseurTristan</a></li><li>français: langue_maternelle</li><li>anglais: B1</li><li>permis_b: véhiculé</li><li>secteur: Luxembourg_Thionville_Metz</li></ul>';
     createWindow(title,text,this,'terminal-content');
     this.classList.add('disabled');
   }
