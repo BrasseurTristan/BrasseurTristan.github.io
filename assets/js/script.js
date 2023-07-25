@@ -178,7 +178,7 @@ function enableButton(button) {
 descButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Description.txt';
-    text = '<p> Passionné d\'informatique, j\'ai décidé de faire une reconversion professionnelle en tant que développeur web. Je suis à la recherche d\'un stage du 26 juin jusqu\’au 28 août 2023. </br></br>Je suis également à la recherche d\'une opportunité d\'alternance pour poursuivre mes études et obtenir un diplôme de développeur FullStack. Le rythme de l\'alternance sera d\'une semaine en formation pour trois semaines en entreprise.</p>';
+    text = '<p> Passionné d\'informatique, j\'ai décidé de faire une reconversion professionnelle en tant que développeur web.</br></br>Je suis actuellement à la recherche d\'une opportunité d\'alternance pour poursuivre mes études et obtenir un diplôme de développeur FullStack à la rentrée d\'octobre 2023. Le rythme de l\'alternance sera d\'une semaine en formation pour trois semaines en entreprise.</p>';
     createWindow(title,text,this);  
     this.classList.add('disabled');
   }
@@ -224,7 +224,7 @@ hobbyButton.addEventListener('dblclick',function(){
 languageSkillButton.addEventListener('dblclick',function(){
   if (!this.classList.contains('disabled')) {
     title = 'Skills.txt';  
-    text = '<h3>Skills :</h3></br><ul><li>HTML (acquis)</li><li>CSS (acquis)</li><li>Javascript (en cours)</li><li>PHP (en cours)</li><li>REACT (en cours)</li><li>ANGULAR (en cours)</li><li>SYMFONY (en cours)</li><li>SQL (en cours)</li><li>Wordpress (acquis)</li><li>GIT (en cours)</li></ul>';
+    text = '<h3>Skills :</h3></br><ul><li>HTML (acquis)</li><li>CSS (acquis)</li><li>TAILWIND (en cours)</li><li>Javascript (en cours)</li><li>PHP (en cours)</li><li>REACT (en cours)</li><li>ANGULAR (en cours)</li><li>SYMFONY (en cours)</li><li>SQL (en cours)</li><li>Wordpress (acquis)</li><li>GIT (en cours)</li></ul>';
     createWindow(title,text,this);
     this.classList.add('disabled');
   }
